@@ -1,0 +1,15 @@
+{
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "setjmp.h": "c",
+        "stdlib.h": "c",
+        "unity.h": "c",
+        "ctype.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "string.h": "c"
+    },
+    "cmake.configureOnOpen": false
+}
