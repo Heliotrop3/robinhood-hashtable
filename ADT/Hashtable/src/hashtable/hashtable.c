@@ -287,7 +287,7 @@ void* htbl_remove(T htbl, const char *key)
     evicted = htbl->entries[idx].value;
 
     htbl->entries[idx]._psl = 0;
-    htbl->entries[idx].value = NULL; // Item isn't malloced so shouldn't need to free
+    htbl->entries[idx].value = NULL; // Item isn't malloced so shouldn't need to free -- This smells of danger...
     htbl->entries[idx].key = NULL;
 
     idx = (idx + 1) % htbl->capacity;
