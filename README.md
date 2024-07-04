@@ -6,10 +6,9 @@ The scope of this project was to become familiar with C, learn how a hash table 
 
 This is a key-value open addressing hash table utilizing Robin Hood hashing.
 
-Robin Hood hashing involves assigning a real number in the range \[0,∞) to each hashed Item. This number is called the Probe Sequence Length (PSL) and represents the Item's shift from its optimal position in the array. An Item's optimal position is determined by where the hash function wants to place the item vs where the array can store the item. For example, an Item with a PSL of 0 is optimally hashed - it's location in the array means when its key is looked up it'll be the first Item the lookup method encounters. In contrast, an Item with a PSL of 3 is stored 3 indices away from its optimal hash - a lookup method will need to examine 3 indices before finding what it's looking for.
+Robin Hood hashing involves assigning a real number in the range \[0,∞) to each hashed Item. This number is called the Probe Sequence Length (PSL) and represents an Item's shift from its optimal position in the array. For example, an Item with a PSL of 0 is optimally hashed - it's location in the array will be the first item found on lookup. In contrast, an Item with a PSL of 3 is stored 3 indices away from its optimal hash - a lookup method will need to examine 3 indices before finding the desired value.
 
-TODO: Finish explanation
-
+The idea of optimal location is important when talking about removing an Item. The algorithm for removing an item involves iterating backwards and moving entries forward by one index until an optimally hashed item is encountered. Improving the position of poorly indexed entries is central to the namesake "Robin Hood Hashing" 
 
 ### Dependencies
 
@@ -20,13 +19,12 @@ TODO: Finish explanation
 ### Installing
 USE AT YOUR OWN RISK - The Author, Maintainer, and/or Owner are not responsible for the consequences of using this code.
 
-The CMake is... well, it's rough. My primary motivation for using CMake was to simplify building the unit test(s). To this end, it's functional, but if you want to use this as a library it'll need some extra love. I specifically avoided trying to [install](https://cmake.org/cmake/help/latest/command/install.html) via CMake as I didn't want to mess up the VM and need to reset it (I hadn't pushed anything to GitHub when writing the code - a fear I have overcome). As I'm typing this, I'm realizing that's a terrible reason and will look into creating a check point on the VM.
+The CMake is... rough. I wanted to learn CMake to simplify building the unit test(s). To this end, it's functional, but if you seriously want to use this as a library please reconsider. The goal of this project was to create a personal string key hashtable in C to familiarize myself with C, CMake, and unit-testing in C. Should that not discourage you, then you should treat this for what it is - code that passes Valgrind but that hasn't been hardened or battle-tested
 
-Regardless, until I have a reason to revisit the installation process, it'll stay in its current questionable state.
 
 ## Help
 
-The good Lord helps those who help themselves... or something like that. Look, don't come to me for help on installing. This is a personal project and not something meant to be used in a production environment. If choosing to use this in any capacity, you do so at your own risk and with the understanding the Author, Maintainer, and/or Repo Owner are not responsible for the consequences of your decision to use this code. Should that not discourage you, then you should treat this for what it is - code that hasn't been hardened or battle-tested and probably has bugs I haven't caught.
+The good Lord helps those who help themselves - you're on your own. This is a personal project and not something meant for widespread consumption.
 
 ## Resources/Acknowledgements
 
